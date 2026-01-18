@@ -1,0 +1,106 @@
+const signatureCocktails = [
+    /*{
+      name: "Mojito",
+      price: "CHF 14.00",
+      description: "Rum, Limette, Minze & Zucker",
+      //image: "/drinks/mojito.JPG",
+    },
+    {
+      name: "Vodka Redbull",
+      price: "CHF 12.00",
+      description: "Vodka & Red Bull",
+      //image: "/drinks/vodka-redbull.JPG",
+    },
+    {
+      name: "Gin Tonic / Lemon",
+      price: "CHF 13.00",
+      description: "Gordons & Tonic Water / Bitterlemon",
+      //image: "/drinks/gin-tonic.JPG",
+    },*/
+    {
+      name: "Cuba Libre",
+      price: "CHF 12.00",
+      description: "Rum & Coca Cola",
+      image: "/drinks/cuba-libre - Copy.JPG",
+      image_large: "/drinks/cuba-libre.JPG",
+    },
+    {
+      name: "Espresso Martini",
+      price: "CHF 14.00",
+      description: "Espresso, Vodka & Kaffeelikör",
+      image: "/drinks/espresso-martini - Copy.JPG",
+      image_large: "/drinks/espresso-martini.JPG",
+    },
+    {
+      name: "Caipirinha",
+      price: "CHF 14.00",
+      description: "Cachaça, Limette & Zucker",
+      image: "/drinks/caipirinha - Copy.JPG",
+      image_large: "/drinks/caipirinha.JPG",
+    },
+    {
+      name: "Blue Vision",
+      price: "CHF 16.00",
+      description: "Vodka, Blue Curaçao, Rum, Ananassaft, Limettensaft",
+      image: "/drinks/blue-vision - Copy.JPG",
+      image_large: "/drinks/blue-vision.JPG",
+    },
+    {
+      name: "Gin Basil",
+      price: "CHF 15.00",
+      description: "Gin, Zuckersirup, Limettensaft & Basilikum",
+      image: "/drinks/gin-basil - Copy.JPG",
+      image_large: "/drinks/gin-basil.JPG",
+    },
+    {
+      name: "Kiwi Sour",
+      price: "CHF 15.00",
+      description: "Gin, Kiwisirup & Limettensaft",
+      image: "/drinks/kiwi-sour - Copy.JPG",
+      image_large: "/drinks/kiwi-sour.JPG",
+    },
+    {
+      name: "Over Kill",
+      price: "CHF 17.00",
+      description: "Tequila, Vodka, Rum, Gin, Pfirsichsaft - Sirup",
+      image: "/drinks/over-kill - Copy.JPG",
+      image_large: "/drinks/over-kill.JPG",
+    },
+    {
+      name: "Watermelon Sugar",
+      price: "CHF 14.00",
+      description: "Gin, Himbeer Gin, Wassermelonensirup, Zuckersaft & Cranberrysoda",
+      image: "/drinks/watermelon - Copy.JPG",
+      image_large: "/drinks/watermelon.JPG",
+    },
+    {
+      name: "Ingwer Spice",
+      price: "CHF 15.00",
+      description: "Vodka, dunkler Rum, Limettensaft, Ananassaft & Orangensaft",
+      image: "/drinks/ingwer-spice - Copy.JPG",
+      image_large: "/drinks/ingwer-spice.JPG",
+    },
+    {
+      name: "Mango Tango",
+      price: "CHF 15.00",
+      description: "Vodka, Limettensaft, Mangosaft & Passionsfruchtsir up",
+      image: "/drinks/mango-tango - Copy.JPG",
+      image_large: "/drinks/mango-tango.JPG",
+    },
+    {
+      name: "Whisky Sour",
+      price: "CHF 15.00",
+      description: "Whiskey (Boubon), Zitronensaft, Zuckersirup",
+      image: "/drinks/whisky-sour - Copy.JPG",
+      image_large: "/drinks/whisky-sour.JPG",
+    },
+    {
+      name: "Caipiroska",
+      price: "CHF 14.50",
+      description: "Roter Vodka, Limette, Rohrzucker, Mineral",
+      image: "/drinks/red-caipiroska - Copy.JPG",
+      image_large: "/drinks/red-caipiroska.JPG",
+    },
+  ]
+
+  export default signatureCocktails

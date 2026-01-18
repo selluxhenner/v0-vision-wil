@@ -1,0 +1,10 @@
+/node_modules
+/.next
+vision-wil-v1.zip
+/app/images/*
+!/app/images/getränkekarte/v3-Drinks 2.png
+!/app/images/getränkekarte/v3-Drinks1.png
+!/app/images/getränkekarte/v3-Food Menu.png
+*.zip
+vision-wil-v1.zip
+vision-wil-v1.zip
