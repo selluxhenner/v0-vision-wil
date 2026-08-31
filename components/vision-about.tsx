@@ -5,8 +5,8 @@ export function VisionAbout() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tight mb-4">Vision</h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">Kunst, Kaffee, Cocktails - Unsere Story</p>
+            <h1 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tight mb-4">Über die Vision Kunst Cafébar in Wil</h1>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">Kunst, Kaffee &amp; Cocktails in Wil SG – unsere Story</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
@@ -60,19 +60,6 @@ export function VisionAbout() {
                 </p>
                 <p className="text-white/60 text-sm">Anwesend: Montag, Dienstag, Freitag, Samstag</p>
               </div> 
-              
-              {/* Steven */}
-              <div className="text-center space-y-4">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border-2 border-cyan-500/50 flex items-center justify-center">
-                  <span className="text-4xl font-black text-cyan-400">S</span>
-                </div>
-                <h4 className="text-2xl font-black text-white uppercase">Seraina</h4>
-                <p className="text-cyan-400 font-medium">Bartender</p>
-                <p className="text-white/60">
-                  Lieblingsgetränk: <span className="text-white">Kiwi Sour ~ erfrischend süss</span>
-                </p>
-                <p className="text-white/60 text-sm">Anwesend: Donnerstag</p>
-              </div>
               
               {/* Steven */}
               <div className="text-center space-y-4">

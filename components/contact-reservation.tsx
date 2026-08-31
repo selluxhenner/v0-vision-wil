@@ -1,10 +1,10 @@
 "use client"
 
-import { MapPin, Clock, Phone, Mail, Instagram, Facebook, Car } from "lucide-react"
+import { Phone, Mail, Instagram, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useMemo, useEffect, useState } from "react"
 
-const generateTimes = (start = 12, end = 23) => {
+const generateTimes = (start = 15, end = 23) => {
   const times = []
   for (let h = start; h <= end; h++) {
     times.push(`${String(h).padStart(2, "0")}:00`)
@@ -13,8 +13,6 @@ const generateTimes = (start = 12, end = 23) => {
   return times
 }
 
-
-
 const generateNextDays = (days = 14) => {
   const fmt = new Intl.DateTimeFormat("de-CH", {
     weekday: "short",
@@ -22,37 +20,27 @@ const generateNextDays = (days = 14) => {
     month: "2-digit",
     year: "numeric",
   })
-
   return Array.from({ length: days }, (_, i) => {
     const d = new Date()
     d.setDate(d.getDate() + i)
-    const iso = d.toISOString().slice(0, 10) // YYYY-MM-DD (good for backend/state)
-    const label = fmt.format(d)              // e.g. "Sa, 10.01.2026"
-    return { iso, label }
+    return { iso: d.toISOString().slice(0, 10), label: fmt.format(d) }
   })
 }
 
+const selectClass =
+  "w-full bg-slate-950 border border-white/10 px-3 py-2.5 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-colors"
 
 export function ContactReservation() {
   const [date, setDate] = useState("")
   const [people, setPeople] = useState(2)
-  const [time, setTime] = useState("")
+  const [time, setTime] = useState("19:00")
   const [name, setName] = useState("")
 
-  const isValid =
-    date.trim() !== "" &&
-    time.trim() !== "" &&
-    name.trim() !== "" &&
-    people > 0
-
-  useEffect(() => {
-    if (!time) setTime("19:00")
-  }, [])
-
+  const isValid = date.trim() !== "" && time.trim() !== "" && name.trim() !== ""
 
   const waHref = useMemo(() => {
     const text = encodeURIComponent(
-      `Hallo Steven, \nIch möchte gerne reservieren:\nDatum: ${date || "-"}\nUhrzeit: ${time || "-"}\nPersonen: ${people}\nName: ${name}`
+      `Hallo Steven,\nIch möchte gerne reservieren:\nDatum: ${date || "-"}\nUhrzeit: ${time || "-"}\nPersonen: ${people}\nName: ${name}`
     )
     return `https://wa.me/41765421540?text=${text}`
   }, [date, time, people, name])
@@ -61,201 +49,159 @@ export function ContactReservation() {
     <section id="kontakt" className="py-20 bg-slate-950">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tight mb-4">
+            <h1 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tight mb-4">
               Kontakt & <span className="text-cyan-400 neon-glow">Reservierung</span>
-            </h2>
-            <p className="text-white/60 text-lg">Wir freuen uns auf deinen Besuch</p>
+            </h1>
+            <p className="text-white/60 text-lg">Vision Kunst Cafébar · Marktgasse 43 · 9500 Wil SG</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-cyan-500/20 rounded-lg">
-                  <MapPin className="w-6 h-6 text-cyan-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Adresse</h3>
-                  <p className="text-white/70">Marktgasse 43</p>
-                  <p className="text-white/70">9500 Wil SG, Schweiz</p>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-cyan-500/20 rounded-lg">
-                  <Clock className="w-6 h-6 text-cyan-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Öffnungszeiten</h3>
-                  <p className="text-white/70">Montag - Donnerstag: 15:00 - 23:00</p>
-                  <p className="text-white/70">Freitag: 15:00 - 01:00</p>
-                  <p className="text-white/70">Samstag: 09:00 - 1:00</p>
-                  <p className="text-white/70">Sonntag: 13:00 - 20:00</p>
-                </div>
-              </div>
+            {/* Left — Reservation (dominant) */}
+            <div>
+              <div
+                style={{ borderTop: "2px solid #00d4e8" }}
+                className="bg-slate-900/60 border border-white/8 p-8"
+              >
+                <h3
+                  className="font-black text-white uppercase tracking-tight mb-1"
+                  style={{ fontSize: "1.6rem" }}
+                >
+                  Tisch reservieren
+                </h3>
+                <p className="text-white/40 text-sm mb-8">
+                  Fülle das Formular aus – wir bestätigen per WhatsApp.
+                </p>
 
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-cyan-500/20 rounded-lg">
-                  <Phone className="w-6 h-6 text-cyan-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Telefon & WhatsApp</h3>
-                  <a href={waHref} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                    +41 76 542 15 40
-                  </a>
-                  <div className="mt-2">
-                    <a href={`https://wa.me/41765421540`} target="_blank" rel="noopener noreferrer">
-                      <Button className="bg-green-600 hover:bg-green-700 text-white">WhatsApp öffnen</Button>
-                    </a>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs text-white/40 uppercase tracking-widest mb-1.5">Tag</label>
+                      <select value={date} onChange={(e) => setDate(e.target.value)} className={selectClass}>
+                        <option value="">Bitte wählen</option>
+                        {generateNextDays().map((d) => (
+                          <option key={d.iso} value={d.iso}>{d.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs text-white/40 uppercase tracking-widest mb-1.5">Uhrzeit</label>
+                      <select value={time} onChange={(e) => setTime(e.target.value)} className={selectClass}>
+                        {generateTimes(15, 23).map((t) => (
+                          <option key={t} value={t}>{t}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-cyan-500/20 rounded-lg">
-                  <Mail className="w-6 h-6 text-cyan-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Email</h3>
-                  <a href="mailto:Visionwilsg@gmail.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                    Visionwilsg@gmail.com
-                  </a>
-                </div>
-              </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs text-white/40 uppercase tracking-widest mb-1.5">Name</label>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Dein Name"
+                        className={`${selectClass} placeholder:text-white/20`}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-white/40 uppercase tracking-widest mb-1.5">Personen</label>
+                      <select value={people} onChange={(e) => setPeople(Number(e.target.value))} className={selectClass}>
+                        {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
+                          <option key={n} value={n}>{n} {n === 1 ? "Person" : "Personen"}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
 
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-cyan-500/20 rounded-lg">
-                  <Car className="w-6 h-6 text-cyan-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Parkieren</h3>
-                  <p className="text-white/70">Parkplätze vor der Linde</p>
-                  <p className="text-white/60 text-sm">Kostenlos ab 19:00 Uhr</p>
-                </div>
-              </div>
-
-              {/* Social Media */}
-              <div className="pt-4">
-                <h3 className="text-xl font-bold text-white mb-4">Folge uns</h3>
-                <div className="flex gap-4">
-                  <a
-                    href="https://www.instagram.com/vision_wil/"
-                    className="p-3 bg-cyan-500/20 rounded-lg hover:bg-cyan-500/30 transition-colors"
-                    aria-label="Instagram"
+                  <Button
+                    asChild
+                    disabled={!isValid}
+                    className={`w-full mt-2 py-6 font-black uppercase tracking-widest text-sm transition-all
+                      ${isValid
+                        ? "bg-cyan-400 text-slate-950 hover:bg-cyan-300"
+                        : "bg-white/5 text-white/25 cursor-not-allowed pointer-events-none"
+                      }`}
                   >
-                    <Instagram className="w-6 h-6 text-cyan-400" />
-                  </a>
+                    {isValid ? (
+                      <a href={waHref} target="_blank" rel="noopener noreferrer">
+                        Jetzt via WhatsApp reservieren →
+                      </a>
+                    ) : (
+                      <span>Bitte alles ausfüllen</span>
+                    )}
+                  </Button>
                 </div>
+              </div>
+
+              {/* Contact links */}
+              <div className="mt-6 grid grid-cols-3 divide-x divide-white/8 border border-white/8">
+                <a
+                  href="https://wa.me/41765421540"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1.5 py-4 text-white/35 hover:text-white hover:bg-white/[0.03] transition-all"
+                >
+                  <Phone className="w-4 h-4 text-cyan-400" />
+                  <span className="text-xs tracking-wide">Anrufen</span>
+                </a>
+                <a
+                  href="mailto:Visionwilsg@gmail.com"
+                  className="flex flex-col items-center gap-1.5 py-4 text-white/35 hover:text-white hover:bg-white/[0.03] transition-all"
+                >
+                  <Mail className="w-4 h-4 text-cyan-400" />
+                  <span className="text-xs tracking-wide">E-Mail</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/vision_wil/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1.5 py-4 text-white/35 hover:text-white hover:bg-white/[0.03] transition-all"
+                >
+                  <Instagram className="w-4 h-4 text-cyan-400" />
+                  <span className="text-xs tracking-wide">Instagram</span>
+                </a>
               </div>
             </div>
 
-            {/* Map */}
-            <div className="space-y-6">
-              <div className="relative h-96 rounded-lg overflow-hidden border border-cyan-500/20">
+            {/* Right — Map */}
+            <div className="flex flex-col gap-4">
+              <div className="relative flex-1 min-h-[420px] overflow-hidden border border-white/8">
+                {/* Subtle cyan corner accent */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0, left: 0,
+                    width: 40, height: 2,
+                    background: "#00d4e8",
+                    zIndex: 10,
+                  }}
+                />
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2698.5!2d9.048423682736383!3d47.466611518766236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDI3JzU5LjgiTiA5wrAwMic1NC4zIkU!5e0!3m2!1sde!2sch!4v1234567890"
                   width="100%"
                   height="100%"
-                  style={{ border: 0 }}
+                  style={{ border: 0, display: "block", filter: "grayscale(0.3) contrast(1.05)" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+                />
               </div>
 
-              <div className="bg-slate-900/50 rounded-lg p-6 border border-cyan-500/20">
-                <h3 className="text-xl font-bold text-white mb-4">Tisch reservieren</h3>
-                <p className="text-white/70 mb-4">
-                  Reserviere deinen Tisch telefonisch oder per WhatsApp. Wir freuen uns auf dich!
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
-                  <div>
-                    <label className="block text-sm text-white/60 mb-1">Tag</label>
-                    <select
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                      className="w-full rounded-md bg-slate-950 border border-cyan-500/20 px-3 py-2 text-white"
-                    >
-                      <option value="">Bitte wählen</option>
-                      {generateNextDays().map((d, index) => (
-                        <option key={index} value={d.iso}>
-                          {d.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-
-                  <div>
-                    <label className="block text-sm text-white/60 mb-1">Uhrzeit</label>
-                    <select
-                      value={time}
-                      onChange={(e) => setTime(e.target.value)}
-                      className="w-full rounded-md bg-slate-950 border border-cyan-500/20 px-3 py-2 text-white"
-                    >
-                      <option value="">Bitte wählen</option>
-                      {generateTimes(16, 23).map((t) => (
-                        <option key={t} value={t}>
-                          {t}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-
-
-                  <div>
-                    <label className="block text-sm text-white/60 mb-1">Personen</label>
-                    <select
-                      value={people}
-                      onChange={(e) => setPeople(Number(e.target.value))}
-                      className="w-full rounded-md bg-slate-950 border border-cyan-500/20 px-3 py-2 text-white"
-                    >
-                      {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
-                        <option key={n} value={n}>{n}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm text-white/60 mb-1">Name</label>
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className={`w-full rounded-md bg-slate-950 px-3 py-2 text-white border border-cyan-500/20"}
-  `}
-                    />
-
-                  </div>
-
-                </div>
-
-
-
-                <Button
-                  asChild
-                  disabled={!isValid}
-                  className={`w-full font-bold uppercase tracking-wider
-                    ${isValid
-                      ? "bg-cyan-500 text-slate-950 hover:bg-cyan-400"
-                      : "bg-slate-700 text-slate-400 cursor-not-allowed"
-                    }`}
-                >
-                  {isValid ? (
-                    <a href={waHref} target="_blank" rel="noopener noreferrer">
-                      Jetzt reservieren
-                    </a>
-                  ) : (
-                    <span>Bitte alles ausfuellen</span>
-                  )}
-                </Button>
-
-
+              {/* Address strip */}
+              <div className="flex items-center gap-3 px-4 py-3 border border-white/8 bg-white/[0.02]">
+                <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
+                <span className="text-sm text-white/50">
+                  Marktgasse 43 · 9500 Wil SG ·{" "}
+                  <span className="text-white/30">Parkplätze ab 19:00 Uhr kostenlos</span>
+                </span>
               </div>
             </div>
+
           </div>
         </div>
       </div>

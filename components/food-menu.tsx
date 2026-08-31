@@ -170,19 +170,19 @@ export function FoodMenu() {
                 src="/karten/v3-Drinks1.png"
                 alt="Complete Drinks 1"
                 className="w-[32%] h-auto object-contain cursor-pointer"
-                onClick={() => setOpenImage("/karten/v3-Drinks1.png")}
+                onClick={() => setOpenImage("/karten/v3-Drinks1_.png")}
               />
               <img
                 src="/karten/v3-Drinks 2.png"
                 alt="Complete Drinks 2"
                 className="w-[32%] h-auto object-contain cursor-pointer"
-                onClick={() => setOpenImage("/karten/v3-Drinks 2.png")}
+                onClick={() => setOpenImage("/karten/v3-Drinks 2_.png")}
               />
               <img
                 src="/karten/v3-Food Menu.png"
                 alt="Complete Food Menu"
                 className="w-[32%] h-auto object-contain cursor-pointer"
-                onClick={() => setOpenImage("/karten/v3-Food Menu.png")}
+                onClick={() => setOpenImage("/karten/v3-Food Menu_.png")}
               />
             </div>
 

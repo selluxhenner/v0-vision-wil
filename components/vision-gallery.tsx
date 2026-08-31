@@ -13,16 +13,17 @@ export function VisionGallery() {
     { src: "/inside/image (38).JPG", alt: "Interior Image 5" },
     { src: "/inside/image (39).JPG", alt: "Interior Image 5" },
     { src: "/images/cocktail-poster.png", alt: "Cocktail Art" },
-    { src: "/images/exterior.png", alt: "Aussenansicht" },
+    { src: "/exterior/aussen1.jpg", alt: "Aussenansicht" },
+    { src: "/interior/image1.jpg", alt: "Innenansicht" },
   ]
 
   return (
     <section className="py-20 bg-slate-900/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className=" text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-4">Galerie</h2>
-            <p className="text-white/60 text-lg">Entdecke unsere Welt</p>
+            <p className="text-white/60 text-lg max-w-[600px] mx-auto text-center">Jeder Besuch hinterlässt Eindrücke. Hier siehst du, wie es bei uns aussieht – die Atmosphäre, die Drinks, die Momente.</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

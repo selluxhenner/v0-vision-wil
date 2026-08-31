@@ -24,11 +24,14 @@ export function DrinksMenu() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tight mb-4">
-              Drinks & <span className="text-cyan-400 neon-glow">Coffee</span>
-            </h2>
+            <h1 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tight mb-4">
+              Drinks &amp; <span className="text-cyan-400 neon-glow">Coffee</span> in Wil
+            </h1>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Von Signature Cocktails bis Premium Barista-Kaffee
+              Die Getränkekarte der Vision Kunst Cafébar in Wil SG: von handgefertigten Cocktails und
+  erlesenen Weinen bis hin zu Premium Barista-Kaffee – bei uns findest du für jeden Moment das
+  passende Getränk. Unsere Barkeeper kreieren klassische Rezepte und eigene Kreationen mit Sorgfalt
+  und Leidenschaft.
             </p>
           </div>
 

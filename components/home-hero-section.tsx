@@ -16,12 +16,12 @@ export function HeroSection() {
 
   const itemUp = {
     hidden: { opacity: 0, y: 18 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" as const } },
   }
 
   const itemDown = {
     hidden: { opacity: 0, y: -18 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" as const } },
   }
 
   const floaty = {
@@ -52,20 +52,22 @@ export function HeroSection() {
           animate="show"
         >
 
-          <motion.h2
+          <motion.h1
             variants={itemDown}
             className="text-5xl sm:text-6xl md:text-7xl mb-2 font-black uppercase tracking-tight"
           >
             <span className="block text-white">KUNST.</span>
             <span className="block text-white">KAFFEE.</span>
             <span className="block text-cyan-400 neon-glow">COCKTAILS.</span>
-          </motion.h2>
+            {/* Keyword-rich location context for crawlers; visually hidden so the design stays clean */}
+            <span className="sr-only">Vision Kunst Cafébar – Bar, Café & Cocktailbar in Wil SG</span>
+          </motion.h1>
 
           <motion.p
             variants={itemUp}
             className="text-sm md:text-xl text-white/80 font-light tracking-wide"
           >
-            Mehr als nur eine Bar.
+            Deine Bar, dein Café & deine Cocktailbar mitten in Wil SG.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12">
@@ -98,48 +100,53 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
             <motion.div
               variants={itemUp}
-              whileHover={{ y: -6, scale: 1.03 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-3 p-4 rounded-lg bg-slate-900/50 border border-cyan-500/20 neon-pulse-hover"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center gap-4 px-5 py-4 border border-white/8 bg-white/[0.03]"
               style={{ willChange: "transform, opacity" }}
             >
-
-              <Wine className="w-10 h-10 text-cyan-400" />
-              <h3 className="text-lg font-bold text-white uppercase tracking-wide">
-                Signature Cocktails
-              </h3>
-              <p className="text-sm text-white/60">Klassiker & Eigenkreationen</p>
+              <Wine className="w-8 h-8 text-cyan-400 shrink-0" />
+              <div>
+                <h3 className="text-s font-bold text-white uppercase tracking-widest leading-none mb-3">
+                  Signature Cocktails
+                </h3>
+                <p className="text-xs text-white/40">Klassiker & Eigenkreationen</p>
+              </div>
             </motion.div>
+
             <motion.div
               variants={itemUp}
-              whileHover={{ y: -6, scale: 1.03 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-3 p-4 rounded-lg bg-slate-900/50 border border-cyan-500/20 neon-pulse-hover"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center gap-4 px-5 py-4 border border-white/8 bg-white/[0.03]"
               style={{ willChange: "transform, opacity" }}
             >
-
-              <Coffee className="w-10 h-10 text-cyan-400" />
-              <h3 className="text-lg font-bold text-white uppercase tracking-wide">
-                Barista Kaffee
-              </h3>
-              <p className="text-sm text-white/60">Premium Bohnen</p>
+              <Coffee className="w-8 h-8 text-cyan-400 shrink-0" />
+              <div>
+                <h3 className="text-s font-bold text-white uppercase tracking-widest leading-none mb-3">
+                  Barista Kaffee
+                </h3>
+                <p className="text-xs text-white/40">Premium Bohnen</p>
+              </div>
             </motion.div>
+
             <motion.div
               variants={itemUp}
-              whileHover={{ y: -6, scale: 1.03 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-3 p-4 rounded-lg bg-slate-900/50 border border-cyan-500/20 neon-pulse-hover"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center gap-4 px-5 py-4 border border-white/8 bg-white/[0.03]"
               style={{ willChange: "transform, opacity" }}
             >
-
-              <Palette className="w-10 h-10 text-cyan-400" />
-              <h3 className="text-lg font-bold text-white uppercase tracking-wide">
-                Kunst & Vibes
-              </h3>
-              <p className="text-sm text-white/60">Moderne Atmosphäre</p>
+              <Palette className="w-8 h-8 text-cyan-400 shrink-0" />
+              <div>
+                <h3 className="text-s font-bold text-white uppercase tracking-widest leading-none mb-3">
+                  Kunst & Vibes
+                </h3>
+                <p className="text-xs text-white/40">Moderne Atmosphäre</p>
+              </div>
             </motion.div>
           </div>
 
