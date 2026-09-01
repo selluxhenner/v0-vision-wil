@@ -2,6 +2,7 @@
 
 import { Phone, Mail, Instagram, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ConsentMap } from "@/components/consent-map"
 import { useMemo, useEffect, useState } from "react"
 
 const generateTimes = (start = 15, end = 23) => {
@@ -181,15 +182,7 @@ export function ContactReservation() {
                     zIndex: 10,
                   }}
                 />
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2698.5!2d9.048423682736383!3d47.466611518766236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDI3JzU5LjgiTiA5wrAwMic1NC4zIkU!5e0!3m2!1sde!2sch!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: "block", filter: "grayscale(0.3) contrast(1.05)" }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <ConsentMap filter="grayscale(0.3) contrast(1.05)" />
               </div>
 
               {/* Address strip */}

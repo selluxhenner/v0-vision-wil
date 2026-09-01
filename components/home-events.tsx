@@ -21,11 +21,9 @@ const CURRENT_EVENT: {
   imageSrc: "",
 }
 
-const eventImage = CURRENT_EVENT.active ? CURRENT_EVENT.imageSrc : "events/wm-live2.jpg"
-const eventTitle = CURRENT_EVENT.active ? CURRENT_EVENT.title : "WM Live bei Vision"
-const eventSubtext = CURRENT_EVENT.active 
-  ? CURRENT_EVENT.description
-  : "Alle Spiele live auf 2 Bildschirmen. Schweizer Tor = Freibier. Schweizer Sieg = Freibier für alle. Dazu unser WM-Special: Stange Bier + Wurst für nur CHF 9.–"
+const eventImage = CURRENT_EVENT.active ? CURRENT_EVENT.imageSrc : ""
+const eventTitle = CURRENT_EVENT.active ? CURRENT_EVENT.title : ""
+const eventSubtext = CURRENT_EVENT.active ? CURRENT_EVENT.description : ""
   
 const images = [
   { src: "/images/bar-neon.png", alt: "Bar mit Neon" },

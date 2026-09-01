@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { JsonLd } from "@/components/json-ld"
+import { ConsentBanner } from "@/components/consent-banner"
 import { siteGraph, SITE_URL } from "@/lib/structured-data"
 import "./globals.css"
 
@@ -97,6 +98,7 @@ export default function RootLayout({
       <body className={`${geist.className} font-sans antialiased`}>
         <ScrollToTop />
         {children}
+        <ConsentBanner />
       </body>
     </html>
   )

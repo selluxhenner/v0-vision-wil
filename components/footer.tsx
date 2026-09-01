@@ -1,3 +1,5 @@
+import { ConsentSettingsLink } from "@/components/consent-settings-link"
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -187,6 +189,14 @@ export function Footer() {
           >
             Impressum
           </a>
+          <a
+            className="hover:text-[#00d4e8] transition-colors duration-200"
+            href="/datenschutz"
+            style={{ marginLeft: "12px", color: "rgba(255,255,255,0.3)", textDecoration: "none" }}
+          >
+            Datenschutz
+          </a>
+          <ConsentSettingsLink className="ml-3 text-white/30 transition-colors duration-200 hover:text-[#00d4e8]" />
         </span>
         <span
           style={{

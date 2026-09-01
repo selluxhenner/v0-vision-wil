@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Impressum der VISION KUNST CAFÉBAR in Wil SG – Angaben gemäss schweizerischem Recht.",
   alternates: { canonical: "/impressum" },
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 }
 
 export default function ImpressumPage() {
@@ -34,7 +34,7 @@ export default function ImpressumPage() {
                   Inhaber
                 </h2>
                 <div className="text-white/80 leading-relaxed">
-                  <p className="text-lg font-semibold text-white">Steven</p>
+                  <p className="text-lg font-semibold text-white">Steven Morf</p>
                   <p>VISION Kunst Cafébar GmbH</p>
                   <address className="not-italic mt-2 text-white/60">
                     Marktgasse 43<br />
